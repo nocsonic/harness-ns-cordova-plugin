@@ -5063,7 +5063,7 @@ angular.module('ngCordova.plugins.media', [])
 // install   :      cordova plugin add cordova-plugin-media
 // link      :      https://github.com/apache/cordova-plugin-media
 
-/* globals Media: true */
+/* globals NSmedia: true */
 angular.module('ngCordova.plugins.nocSonic', [])
 
 .service('NewMedia', ['$q', '$interval', function ($q, $interval) {
@@ -5114,7 +5114,7 @@ angular.module('ngCordova.plugins.nocSonic', [])
   }
 
   function NewMedia(src) {
-      this.media = new Media(src,
+      this.media = new NSmedia(src,
         function (success) {
             clearTimer();
             resetValues();
