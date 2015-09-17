@@ -1,6 +1,6 @@
 angular.module('ns.controllers', [])
 
-.controller('HomeCtrl', function($scope, $q, $ionicPlatform, $timeout, $cordovaFileTransfer,  $cordovaFile, $cordovaMedia) {
+.controller('HomeCtrl', function($scope, $q, $ionicPlatform, $timeout, $cordovaFileTransfer,  $cordovaFile, $cordovaNocSonicMedia) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -44,7 +44,7 @@ angular.module('ns.controllers', [])
 
 
   $scope.playAudio = function(){
-          media =$cordovaMedia.newMedia( Beat.beat_cdn_url)
+          media =$cordovaNocSonicMedia.newMedia( Beat.beat_cdn_url)
           var iOSPlayOptions = {
             numberOfLoops: 2,
             playAudioWhenScreenIsLocked: false

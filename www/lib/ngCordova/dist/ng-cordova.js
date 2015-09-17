@@ -5064,7 +5064,7 @@ angular.module('ngCordova.plugins.media', [])
 // link      :      https://github.com/apache/cordova-plugin-media
 
 /* globals NSmedia: true */
-angular.module('ngCordova.plugins.nocSonic', [])
+angular.module('ngCordova.plugins.nocSonicMedia', [])
 
 .service('NewMedia', ['$q', '$interval', function ($q, $interval) {
   var q, q2, q3, mediaStatus = null, mediaPosition = -1, mediaTimer, mediaDuration = -1;
@@ -5114,7 +5114,7 @@ angular.module('ngCordova.plugins.nocSonic', [])
   }
 
   function NewMedia(src) {
-      this.media = new NSmedia(src,
+      this.media = new NocSonicMedia(src,
         function (success) {
             clearTimer();
             resetValues();
@@ -5195,21 +5195,13 @@ angular.module('ngCordova.plugins.nocSonic', [])
   return NewMedia;
 
 }])
-.factory('$cordovaNocSonic', ['NewMedia', function (NewMedia) {
+.factory('$cordovaNocSonicMedia', ['NewMedia', function (NewMedia) {
   return {
       newMedia: function (src) {
           return new NewMedia(src);
       }
   };
 }]);
-
-
-
-
-
-
-
-
 
 
 
@@ -5370,12 +5362,12 @@ angular.module('ngCordova.plugins', [
   'ngCordova.plugins.launchNavigator',
   'ngCordova.plugins.localNotification',
   'ngCordova.plugins.media',
-  'ngCordova.plugins.nocsonic',
   'ngCordova.plugins.mMediaAds',
   'ngCordova.plugins.mobfoxAds',
   'ngCordova.plugins.mopubAds',
   'ngCordova.plugins.nativeAudio',
   'ngCordova.plugins.network',
+  'ngCordova.plugins.nocSonicMedia',
   'ngCordovaOauth',
   'ngCordova.plugins.pinDialog',
   'ngCordova.plugins.prefs',
