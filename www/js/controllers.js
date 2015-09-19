@@ -1,6 +1,7 @@
 angular.module('ns.controllers', [])
 
-.controller('HomeCtrl', function($scope, $q, $ionicPlatform, $timeout, $cordovaFileTransfer,  $cordovaFile, $cordovaNocSonicMedia) {
+.controller('HomeCtrl', function($scope, $q, $ionicPlatform, $timeout, $cordovaFileTransfer,
+                                 $cordovaFile, $cordovaNocSonicMedia, $cordovaDevice) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -44,17 +45,23 @@ angular.module('ns.controllers', [])
 
 
   $scope.playAudio = function(){
-          media =$cordovaNocSonicMedia.newMedia( Beat.beat_cdn_url)
+         // media = $cordovaNocSonicMedia.newMedia( Beat.beat_cdn_url);
+          media = new NocSonicMeida(Beat.beat_cdn_url, null, null, mediaStatusCallback);
           var iOSPlayOptions = {
             numberOfLoops: 2,
             playAudioWhenScreenIsLocked: false
           }
-          media.play(iOSPlayOptions); // iOS only!*/
+          if($cordovaDevice.getPlatform() == 'iOS'){
+               media.play(iOSPlayOptions); // iOS only!*/
+          }else{
+               media.play(); // iOS only!*/
+          }
   }
 
   $scope.stopAudio = function(){
      if(media){
        media.stop();
+       media.release();
      }
   }
 
