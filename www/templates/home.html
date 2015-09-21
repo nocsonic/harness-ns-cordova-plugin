@@ -3,10 +3,15 @@
   <ion-content class="padding">
 		<div class="row">
 			<div class="col">
-				<button class="button button-block button-balanced" ng-click="playAudio()">PLAY</button>
+				<button class="button button-block button-balanced" ng-click="downloadFile()">DownLoadAssets</button>
+			</div>
+    </div>
+		<div class="row">
+			<div class="col">
+				<button class="button button-block button-balanced" ng-show="assetsLoaded" ng-click="playAudio()">PLAY</button>
 			</div>
 			<div class="col">
-				<button class="button button-block button-balanced" ng-click="stopAudio()">STOP</button>
+				<button class="button button-block button-balanced" ng-show="assetsLoaded"  ng-click="stopAudio()">STOP</button>
 			</div>
 		</div>
 

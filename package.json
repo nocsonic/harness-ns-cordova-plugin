@@ -22,6 +22,7 @@
     "com.ionic.keyboard",
     "cordova-plugin-file",
     "cordova-plugin-file-transfer",
+    "cordova-plugin-nativeaudio",
     "cordova-plugin-nocsonicmedia",
       {
         "locator": "https://github.com/nocsonic/cordova-plugin-nocsonicmedia.git"
